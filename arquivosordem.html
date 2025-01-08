@@ -63,14 +63,6 @@
             background-color: #4a7a77;
         }
 
-        .result {
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #e9e9e9;
-            border-radius: 10px;
-            display: none;
-        }
-
         .error {
             color: red;
             font-weight: bold;
@@ -89,18 +81,6 @@
         <button onclick="verificarSenha()">Acessar</button>
     </div>
 
-    <!-- Resultado após verificação da senha -->
-    <div id="resultado" class="result">
-        <h2>Conteúdo da Base de Dados:</h2>
-        <p>Você acessou com sucesso a base de dados da Ordem. Aqui estão os registros secretos...</p>
-        <ul>
-            <li>Registro 1: Caso paranormal no centro da cidade...</li>
-            <li>Registro 2: Investigação sobre entidades desconhecidas...</li>
-            <li>Registro 3: Encontro com membros da Ordem...</li>
-            <!-- Adicione mais registros conforme necessário -->
-        </ul>
-    </div>
-
     <!-- Mensagem de erro -->
     <p id="erro" class="error" style="display: none;">Senha incorreta. Tente novamente.</p>
 </div>
@@ -112,13 +92,9 @@
         
         // Verifica se a senha é "Patrick"
         if (senha === "Patrick") {
-            // Exibe o conteúdo da base de dados
-            document.getElementById('resultado').style.display = 'block';
-            document.getElementById('erro').style.display = 'none';
+            window.location.href = "buscapatrick.html";  // Redireciona para buscapatrick.html
         } else {
-            // Exibe mensagem de erro
-            document.getElementById('erro').style.display = 'block';
-            document.getElementById('resultado').style.display = 'none';
+            window.location.href = "carregando.html";  // Redireciona para carregando.html
         }
     }
 </script>
