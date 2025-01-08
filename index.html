@@ -5,34 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Troca de Imagem ao Hover</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-image: url('pasta.jpg'); /* Imagem do celular desligado */
+        /* Estilização do contêiner */
+        .background {
+            width: 100vw; /* Largura total da tela */
+            height: 100vh; /* Altura total da tela */
+            background-image: url('celular-desligado.jpg'); /* Imagem inicial (celular desligado) */
             background-size: cover;
             background-position: center;
-            transition: background-image 0.3s ease;
+            transition: background-image 0.3s ease; /* Transição suave */
+        }
+
+        /* Quando o mouse passa sobre o ponto específico */
+        .hover-area:hover ~ .background {
+            background-image: url('celular-acesso.jpg'); /* Troca para a imagem do celular aceso */
         }
 
         /* Define a área sensível ao hover */
         .hover-area {
-            width: 200px;
-            height: 400px;
-            background: rgba(0, 0, 0, 0.2); /* Apenas para visualização, pode ser transparente */
             position: absolute;
-        }
-
-        /* Quando o mouse passa sobre a área, muda a imagem de fundo */
-        .hover-area:hover ~ body {
-            background-image: url('tablet.jpg'); /* Imagem do celular aceso */
+            top: 50%; /* Centraliza verticalmente */
+            left: 50%; /* Centraliza horizontalmente */
+            transform: translate(-50%, -50%); /* Ajuste para centralização perfeita */
+            width: 200px; /* Tamanho da área */
+            height: 400px;
+            background: rgba(0, 0, 0, 0.2); /* Apenas para visualização, pode ser removido */
         }
     </style>
 </head>
 <body>
     <div class="hover-area"></div>
+    <div class="background"></div>
 </body>
 </html>
