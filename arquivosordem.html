@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base de Dados da Ordem</title>
+    <style>
+        /* Estilos básicos para a página */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .input-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        input[type="password"] {
+            padding: 10px;
+            width: 200px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #5c9e9d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        button:hover {
+            background-color: #4a7a77;
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e9e9e9;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Base de Dados da Ordem</h1>
+    <p>Bem-vindo à base de dados da Ordem Paranormal. Para acessar os registros secretos da Ordem, insira a senha.</p>
+
+    <!-- Campo de senha -->
+    <div class="input-container">
+        <input type="password" id="senha" placeholder="Digite a senha...">
+        <button onclick="verificarSenha()">Acessar</button>
+    </div>
+
+    <!-- Resultado após verificação da senha -->
+    <div id="resultado" class="result">
+        <h2>Conteúdo da Base de Dados:</h2>
+        <p>Você acessou com sucesso a base de dados da Ordem. Aqui estão os registros secretos...</p>
+        <ul>
+            <li>Registro 1: Caso paranormal no centro da cidade...</li>
+            <li>Registro 2: Investigação sobre entidades desconhecidas...</li>
+            <li>Registro 3: Encontro com membros da Ordem...</li>
+            <!-- Adicione mais registros conforme necessário -->
+        </ul>
+    </div>
+
+    <!-- Mensagem de erro -->
+    <p id="erro" class="error" style="display: none;">Senha incorreta. Tente novamente.</p>
+</div>
+
+<script>
+    function verificarSenha() {
+        // Obtém o valor da senha digitada
+        var senha = document.getElementById('senha').value;
+        
+        // Verifica se a senha é "Patrick"
+        if (senha === "Patrick") {
+            // Exibe o conteúdo da base de dados
+            document.getElementById('resultado').style.display = 'block';
+            document.getElementById('erro').style.display = 'none';
+        } else {
+            // Exibe mensagem de erro
+            document.getElementById('erro').style.display = 'block';
+            document.getElementById('resultado').style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+</html>
