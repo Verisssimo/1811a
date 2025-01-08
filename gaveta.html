@@ -5,45 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página com Download</title>
     <style>
-        /* Definir a imagem de fundo */
+        /* Definir a imagem de fundo como a foto de um papel */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
-            background-image: url('gaveta.jpg'); /* Substitua pelo caminho da sua imagem */
+            background-image: url('papel.jpg'); /* Substitua pelo caminho da sua foto de papel */
             background-size: cover;
             background-position: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             cursor: pointer; /* Indica que é clicável */
-        }
-
-        /* Definir um texto centralizado */
-        .texto {
-            color: white;
-            font-size: 24px;
-            font-family: Arial, sans-serif;
-            font-weight: bold;
-            text-align: center;
         }
     </style>
 </head>
-<body onclick="iniciarDownload()">
-    <div class="texto">
-        Clique aqui para iniciar o download!
-    </div>
+<body onclick="iniciarDownload(event)">
 
     <script>
-        function iniciarDownload() {
-            // Defina o caminho do arquivo a ser baixado
-            var arquivo = 'arquivo-a-ser-baixado.zip'; // Substitua pelo caminho do arquivo que você deseja disponibilizar para download
+        function iniciarDownload(event) {
+            // Coordenadas onde o usuário deve clicar
+            // Defina a área clicável para iniciar o download. Exemplo: clicar no meio da página (pode ajustar a posição)
+            var x = event.clientX;
+            var y = event.clientY;
 
-            // Criação de um link temporário para iniciar o download
-            var link = document.createElement('a');
-            link.href = arquivo;
-            link.download = arquivo; // Nome do arquivo quando for salvo
-            link.click(); // Simula o clique para iniciar o download
+            var larguraImagem = window.innerWidth;
+            var alturaImagem = window.innerHeight;
+
+            // Ponto específico onde o download deve acontecer (ajuste os valores)
+            var xMin = larguraImagem * 0.4;  // Área inicial do clique em x
+            var xMax = larguraImagem * 0.6;  // Área final do clique em x
+            var yMin = alturaImagem * 0.4;  // Área inicial do clique em y
+            var yMax = alturaImagem * 0.6;  // Área final do clique em y
+
+            // Verificar se o clique está dentro da área clicável
+            if (x >= xMin && x <= xMax && y >= yMin && y <= yMax) {
+                // Defina o caminho do arquivo a ser baixado
+                var arquivo = 'arquivo-a-ser-baixado.zip'; // Substitua pelo caminho do arquivo que você deseja disponibilizar para download
+
+                // Criação de um link temporário para iniciar o download
+                var link = document.createElement('a');
+                link.href = arquivo;
+                link.download = arquivo; // Nome do arquivo quando for salvo
+                link.click(); // Simula o clique para iniciar o download
+            }
         }
     </script>
 </body>
