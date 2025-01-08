@@ -5,32 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Base de Dados da Ordem</title>
     <style>
-        /* Estilos básicos para a página */
+        /* Estilos para página com tema dark e tecnológico */
         body, html {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Courier New', Courier, monospace;
             height: 100%;
-            background-color: #f4f4f4;
+            background-color: #121212;
+            color: #00FF00;
+            overflow: hidden;
         }
 
         .container {
             max-width: 800px;
             margin: 50px auto;
             padding: 20px;
-            background-color: white;
+            background-color: #1a1a1a;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+            border: 2px solid #00FF00;
         }
 
         h1 {
             text-align: center;
-            color: #333;
+            font-size: 2em;
+            color: #00FF00;
         }
 
         p {
             font-size: 18px;
-            color: #555;
+            color: #aaa;
             line-height: 1.6;
         }
 
@@ -42,30 +46,35 @@
 
         input[type="password"] {
             padding: 10px;
-            width: 200px;
+            width: 250px;
             font-size: 16px;
-            border: 1px solid #ccc;
+            border: 2px solid #00FF00;
+            background-color: #333;
+            color: #00FF00;
             border-radius: 5px;
         }
 
         button {
             padding: 10px 20px;
             font-size: 16px;
-            background-color: #5c9e9d;
-            color: white;
-            border: none;
+            background-color: #333;
+            color: #00FF00;
+            border: 2px solid #00FF00;
             border-radius: 5px;
             cursor: pointer;
             margin-left: 10px;
         }
 
         button:hover {
-            background-color: #4a7a77;
+            background-color: #00FF00;
+            color: #121212;
+            border: 2px solid #121212;
         }
 
         .error {
             color: red;
             font-weight: bold;
+            text-align: center;
         }
     </style>
 </head>
@@ -73,28 +82,24 @@
 
 <div class="container">
     <h1>Base de Dados da Ordem</h1>
-    <p>Bem-vindo à base de dados da Ordem Paranormal. Para acessar os registros secretos da Ordem, insira a senha.</p>
+    <p>Bem-vindo à base de dados da Ordem Paranormal. Para acessar os registros secretos, insira a senha.</p>
 
-    <!-- Campo de senha -->
     <div class="input-container">
-        <input type="password" id="senha" placeholder="Digite a senha...">
+        <input type="password" id="senha" placeholder="Senha de Acesso...">
         <button onclick="verificarSenha()">Acessar</button>
     </div>
 
-    <!-- Mensagem de erro -->
     <p id="erro" class="error" style="display: none;">Senha incorreta. Tente novamente.</p>
 </div>
 
 <script>
     function verificarSenha() {
-        // Obtém o valor da senha digitada
         var senha = document.getElementById('senha').value;
         
-        // Verifica se a senha é "Patrick"
         if (senha === "Patrick") {
-            window.location.href = "buscapatrick.html";  // Redireciona para buscapatrick.html
+            window.location.href = "buscapatrick.html";
         } else {
-            window.location.href = "carregando.html";  // Redireciona para carregando.html
+            window.location.href = "carregando.html";
         }
     }
 </script>
