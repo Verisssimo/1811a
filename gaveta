@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página com Download</title>
+    <style>
+        /* Definir a imagem de fundo */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-image: url('gaveta.jpg'); /* Substitua pelo caminho da sua imagem */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer; /* Indica que é clicável */
+        }
+
+        /* Definir um texto centralizado */
+        .texto {
+            color: white;
+            font-size: 24px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body onclick="iniciarDownload()">
+    <div class="texto">
+        Clique aqui para iniciar o download!
+    </div>
+
+    <script>
+        function iniciarDownload() {
+            // Defina o caminho do arquivo a ser baixado
+            var arquivo = 'arquivo-a-ser-baixado.zip'; // Substitua pelo caminho do arquivo que você deseja disponibilizar para download
+
+            // Criação de um link temporário para iniciar o download
+            var link = document.createElement('a');
+            link.href = arquivo;
+            link.download = arquivo; // Nome do arquivo quando for salvo
+            link.click(); // Simula o clique para iniciar o download
+        }
+    </script>
+</body>
+</html>
