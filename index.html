@@ -1,39 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Troca de Imagem ao Hover</title>
+    <title>Escritório Interativo</title>
     <style>
-        /* Estilização do contêiner */
-        .background {
-            width: 100vw; /* Largura total da tela */
-            height: 100vh; /* Altura total da tela */
-            background-image: url('pasta.jpg'); /* Imagem inicial (celular desligado) */
+        /* Estilo para a página */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-image: url('foto-do-escritorio.jpg'); /* Coloque o caminho da sua foto */
             background-size: cover;
             background-position: center;
-            transition: background-image 0.3s ease; /* Transição suave */
+            font-family: Arial, sans-serif;
+            cursor: pointer;
         }
 
-        /* Quando o mouse passa sobre o ponto específico */
-        .hover-area:hover ~ .background {
-            background-image: url('tablet.jpg'); /* Troca para a imagem do celular aceso */
-        }
-
-        /* Define a área sensível ao hover */
-        .hover-area {
+        /* Gaveta */
+        .gaveta {
             position: absolute;
-            top: 25%; /* Centraliza verticalmente */
-            left: 75%; /* Centraliza horizontalmente */
-            transform: translate(-50%, -50%); /* Ajuste para centralização perfeita */
-            width: 20px; /* Tamanho da área */
-            height: 40px;
-            background: rgba(0, 0, 0, 0.2); /* Apenas para visualização, pode ser removido */
+            left: 30%; /* Ajuste conforme necessário */
+            top: 50%; /* Ajuste conforme necessário */
+            width: 200px;
+            height: 100px;
+            background-color: rgba(0, 0, 0, 0.5); /* Um fundo semi-transparente para destacar a gaveta */
+            cursor: pointer;
+        }
+
+        /* Chave */
+        .chave {
+            position: absolute;
+            left: 60%; /* Ajuste conforme necessário */
+            top: 40%; /* Ajuste conforme necessário */
+            width: 50px;
+            height: 50px;
+            background-image: url('chave.png'); /* Coloque o caminho da imagem da chave */
+            background-size: contain;
+            background-repeat: no-repeat;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <div class="hover-area"></div>
-    <div class="background"></div>
+
+    <!-- Gaveta (com link para outra página) -->
+    <div class="gaveta" onclick="window.location.href='outra-pagina.html';"></div>
+
+    <!-- Chave -->
+    <div class="chave" onmouseover="trocarImagem();" onmouseout="voltarImagem();"></div>
+
+    <script>
+        // Função para trocar a imagem de fundo quando o mouse passar sobre a chave
+        function trocarImagem() {
+            document.body.style.backgroundImage = "url('foto-do-escritorio-com-chave.jpg')"; /* Troque pela foto com a chave */
+        }
+
+        // Função para voltar à imagem original do fundo quando o mouse sair da chave
+        function voltarImagem() {
+            document.body.style.backgroundImage = "url('foto-do-escritorio.jpg')"; /* Volte para a imagem original */
+        }
+    </script>
+
 </body>
 </html>
