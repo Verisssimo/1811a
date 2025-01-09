@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador Regressivo</title>
+    <style>
+        /* Estilos para a página com imagem de fundo */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Courier New', Courier, monospace;
+            background-image: url('background.jpg'); /* Substitua pelo caminho da sua imagem de fundo */
+            background-size: cover;
+            background-position: center;
+            color: #FFFFFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente para o contador */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #00FF00;
+        }
+
+        .countdown {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #00FF00;
+        }
+
+        p {
+            font-size: 1.5em;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Contador Regressivo</h1>
+    <p>Faltam para o evento:</p>
+    <div id="contador" class="countdown"></div>
+</div>
+
+<script>
+// Define a data e hora para o contador regressivo (15/01/2025 às 18:30)
+var dataAlvo = new Date("Jan 15, 2025 18:30:00").getTime();
+
+// Atualiza o contador a cada 1 segundo
+var intervalo = setInterval(function() {
+
+    // Obtém a data e hora atuais
+    var agora = new Date().getTime();
+
+    // Calcula a diferença entre a data de destino e a data atual
+    var distancia = dataAlvo - agora;
+
+    // Calcula o tempo restante em dias, horas, minutos e segundos
+    var dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+    var horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+    var segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+    // Exibe o contador no formato de dias, horas, minutos e segundos
+    document.getElementById("contador").innerHTML = dias + "d " + horas + "h " + minutos + "m " + segundos + "s";
+
+    // Se o contador chegar a zero, exibe uma mensagem
+    if (distancia < 0) {
+        clearInterval(intervalo);
+        document.getElementById("contador").innerHTML = "O rpg começou!";
+    }
+}, 1000);
+</script>
+
+</body>
+</html>
